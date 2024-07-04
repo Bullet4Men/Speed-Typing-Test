@@ -78,20 +78,20 @@ void reset_input(char *input, char *text, char *next_text, size_t *pos, int word
 void display_final_stats(int correct_symbols, int mistakes_count, time_t start_time) {
     time_t end_time = time(NULL);
     double test_duration = difftime(end_time, start_time);
+    double accurancy = correct_symbols / mistakes_count;
     double cpm = correct_symbols / (test_duration / 60);
     double wpm = cpm / 5;
 
     clear();
     move(0, 0);
-    attron(COLOR_PAIR(4));
-    printw("Test completed!\n");
+    printwa(COLOR_PAIR(4), "Test completed!\n");
     printw("Correct characters: %d\n", correct_symbols);
     printw("Mistakes: %d\n", mistakes_count);
+    printw("Accurancy %lf\n", accurancy);
     printw("Words per minute (WPM): %.2lf\n", wpm);
     printw("Characters per minute (CPM): %.2lf\n", cpm);
     printw("Test duration: %.0lf seconds\n", test_duration);
-    printw("Press q to exit.");
-    attroff(COLOR_PAIR(4));
+    printwa(COLOR_PAIR(2), "Press q to exit.");
 }
 
 void start_typing_test() {
@@ -122,7 +122,7 @@ void start_typing_test() {
 
     time_t start_time = time(NULL);
 
-    while (words >= 0) {
+    while (words > 0) {
         process_input(text, input, &pos, &words, &correct_symbols, &mistakes_count);
         update_screen(text, input, pos, correct_symbols, words, mistakes_count, start_time);
 
