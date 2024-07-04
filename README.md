@@ -14,19 +14,19 @@ This is a simple speed typing test program implemented in C using the ncurses li
 
 ## How to Build and Run
 
-1. Clone the repository
+1. Clone the repository:
 `git clone https://github.com/Bullet4Men/Speed-Typing-Test`
 
-1. 1. If you use NixOS then do this
+1. 1. If you use NixOS then do this:
 `nix-shell`
 
-2. Navigate to the project directory
+2. Navigate to the project directory:
 `cd Speed-Typing-Test`
 
-3. Compile the program
+3. Compile the program:
 `mkdir build && make`
 
-4. Run the program
+4. Run the program:
 `./build/speed_typing_test`
 
 ## Screenshots
